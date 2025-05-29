@@ -1,5 +1,5 @@
 from kaggle.api.kaggle_api_extended import KaggleApi
-from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
@@ -21,7 +21,7 @@ x_train , x_val , train_y , val_y = train_test_split(x, y, test_size=0.2, random
 x_train = StandardScaler().fit_transform(x_train)
 x_val = StandardScaler().fit_transform(x_val)
 
-model = LogisticRegression(random_state=0 , solver='lbfgs', multi_class='auto')
+model = DecisionTreeClassifier()
 model.fit(x_train, train_y)
 
 y_pred = model.predict(x_val)
