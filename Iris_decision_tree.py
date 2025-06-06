@@ -13,10 +13,7 @@ x = Iris_dataset.drop('species', axis=1)
 
 x_train , x_val , train_y , val_y = train_test_split(x, y, test_size=0.2, random_state=0)
 
-x_train = StandardScaler().fit_transform(x_train)
-x_val = StandardScaler().fit_transform(x_val)
-
-model = DecisionTreeClassifier(max_leaf_nodes=5, max_depth=2)
+model = DecisionTreeClassifier()
 model.fit(x_train, train_y)
 
 y_pred = model.predict(x_val)
